@@ -52,7 +52,7 @@ wss.on('connection', (ws) => {
     if (roomId && rooms[roomId]) {
       rooms[roomId].delete(ws);
       if (rooms[roomId].size === 0) {
-        delete rooms[roomId]; // удаляем пустую комнату
+        delete rooms[roomId]; 
       }
       console.log(`Client left room: ${roomId}`);
     }
