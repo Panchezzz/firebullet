@@ -3,16 +3,16 @@ const WebSocket = require('ws');
 const PORT = process.env.PORT || 3000;
 
 const wss = new WebSocket.Server({ port: PORT }, () => {
-  console.log(`? WebSocket сервер запущен на порту ${PORT}`);
+  console.log(`? WebSocket СЃРµСЂРІРµСЂ Р·Р°РїСѓС‰РµРЅ РЅР° РїРѕСЂС‚Сѓ ${PORT}`);
 });
 
 wss.on('connection', (ws) => {
-  console.log('?? Клиент подключился');
+  console.log('?? РљР»РёРµРЅС‚ РїРѕРґРєР»СЋС‡РёР»СЃСЏ');
 
   ws.on('message', (message) => {
-    console.log('?? Получено сообщение:', message.toString());
+    console.log('?? РџРѕР»СѓС‡РµРЅРѕ СЃРѕРѕР±С‰РµРЅРёРµ:', message.toString());
 
-    // Отправляем сообщение всем подключенным клиентам
+    // РћС‚РїСЂР°РІР»СЏРµРј СЃРѕРѕР±С‰РµРЅРёРµ РІСЃРµРј РїРѕРґРєР»СЋС‡РµРЅРЅС‹Рј РєР»РёРµРЅС‚Р°Рј
     wss.clients.forEach((client) => {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
         client.send(message.toString());
@@ -21,6 +21,6 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('close', () => {
-    console.log('? Клиент отключился');
+    console.log('? РљР»РёРµРЅС‚ РѕС‚РєР»СЋС‡РёР»СЃСЏ');
   });
 });
