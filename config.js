@@ -36,8 +36,8 @@ module.exports = {
 	host_max_unconfirmed: 10,
 	flood_limit: 1000,
 
-	max_alias_length: 20,
-	max_name_length: 30,
+	max_alias_length: 999,
+	max_name_length: 999,
 
 	max_game_peers: 0
 };
