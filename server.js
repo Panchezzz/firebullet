@@ -3,14 +3,14 @@ const WebSocket = require('ws');
 const PORT = process.env.PORT || 3000;
 
 const wss = new WebSocket.Server({ port: PORT }, () => {
-  console.log(`WebSocket сервер запущен на порту ${PORT}`);
+  console.log(`WebSocket server started on port ${PORT}`);
 });
 
 wss.on('connection', (ws) => {
-  console.log('Клиент подключился');
+  console.log('Client connected');
 
   ws.on('message', (message) => {
-    console.log('Получено сообщение:', message.toString());
+    console.log('Received message:', message.toString());
 
     wss.clients.forEach((client) => {
       if (client !== ws && client.readyState === WebSocket.OPEN) {
@@ -20,6 +20,6 @@ wss.on('connection', (ws) => {
   });
 
   ws.on('close', () => {
-    console.log('Клиент отключился');
+    console.log('Client disconnected');
   });
 });
