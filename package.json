@@ -1,11 +1,6 @@
 {
-  "name": "ws-server",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
   "dependencies": {
-    "ws": "^8.0.0"
+    "colors": "^1.4.0",
+    "ws": "^8.18.2"
   }
 }
